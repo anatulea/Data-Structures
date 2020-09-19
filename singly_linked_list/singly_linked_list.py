@@ -94,4 +94,8 @@ class LinkedList:
 
     def get_max(self):
         pass
+        # current_node = self.head
+        # while current_node != None and current_node.get_next_node != None:
+        #     if current_node.get_next_node.value >= value:
+               
         # TODO time permitting
