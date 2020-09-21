@@ -79,6 +79,7 @@ class QueuesWithStacks():
     def __init__(self):
         self.stack1 = []
         self.stack2 = []
+        self.size = 0
 
     def enqueue(self, data):
         for i in range(len(self.stack1)):
@@ -88,6 +89,7 @@ class QueuesWithStacks():
         for i in range(len(self.stack2)):
             item = self.stack2.pop()
             self.stack1.append(item)
+        self.size += 1
         return
 
     def dequeue(self):
@@ -95,6 +97,7 @@ class QueuesWithStacks():
             print('Queue empty')
             return
         else:
+            self.size -= 1
             return self.stack1.pop()
 
     def print_queue(self):

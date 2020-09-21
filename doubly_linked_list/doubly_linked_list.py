@@ -47,15 +47,18 @@ class DoublyLinkedList:
         # update length
         self.length += 1
            
-        
-        
     """
     Removes the List's current head node, making the
     current head's next node the new head of the List.
     Returns the value of the removed Node.
     """
     def remove_from_head(self):
-        pass
+        if self.head == None:
+            print("List is empty. Nothing to delete")
+        return
+        else:
+            delete(self.head)
+
             
     """
     Wraps the given value in a ListNode and inserts it 

@@ -4,17 +4,7 @@ return elements in Last In First Out order.
 
 1. Implement the Stack class using an array as the underlying storage structure.
    Make sure the Stack tests pass.
-2. Re-implement the Stack class, this time using the linked list implementation
-   as the underlying storage structure.
-   Make sure the Stack tests pass.
-3. What is the difference between using an array vs. a linked list when 
-   implementing a Stack?
 """
-
-import sys
-sys.path.append('../singly_linked_list/')
-from singly_linked_list import LinkedList
-
 # class Stack:
 #     def __init__(self):
 #         self.size = 0
@@ -31,6 +21,15 @@ from singly_linked_list import LinkedList
 #             return None
 #         else:
 #             return self.storage.pop()
+
+"""
+2. Re-implement the Stack class, this time using the linked list implementation
+   as the underlying storage structure.
+   Make sure the Stack tests pass.
+"""
+from singly_linked_list import LinkedList
+import sys
+sys.path.append('../singly_linked_list/')
 
 
 class Stack:
@@ -53,3 +52,11 @@ class Stack:
             return value
         else:
             return None
+
+"""
+3. What is the difference between using an array vs. a linked list when 
+   implementing a Stack?
+"""
+# LL use more memory than the arrays
+# LL are faster at insertion and deletion
+# LL are dynamic , arrays have fixed size
