@@ -136,12 +136,12 @@ class DoublyLinkedList:
             return self.head.value
     # create a max var     
         current = self.head
-        max = self.head.value
+        max_value = self.head.value
     #  loop through nodes. we use while loops when we don't know how many
         while(current is not None):
-            if current.value > max:
-                max = current.value
+            if current.value > max_value:
+                max_value = current.value
             current = current.next
-    # compare value in node to max found
-    # return max found
-        return max
+    # compare value in node to max_value found
+    # return max_value found
+        return max_value
