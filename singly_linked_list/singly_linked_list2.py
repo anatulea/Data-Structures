@@ -84,5 +84,24 @@ class LinkedList:
             self.tail.next = None
             return current_tail
 
-      
+    def remove_at_index(self, index):
+        # check lenth > index
+        if index >= self.length:
+            return None
+        if self.length == 1 and index == 0:
+            target= self.head
+            self.head = None
+            self.tail = None
+            self.length -= 1
+            return target.value
+
+        # itterate through the loop to find index
+        prev_node = self.head 
+        for i in range(index-1):
+            prev_node = prev_node.next
+        target = prev_node.next
+        prev_node.next = target.next
+        target.next = None
+        self.length -=1 
+        return target.value
         

@@ -32,6 +32,7 @@ import sys
 sys.path.append('../singly_linked_list/')
 
 
+
 class Stack:
     def __init__(self):
         self.size = 0

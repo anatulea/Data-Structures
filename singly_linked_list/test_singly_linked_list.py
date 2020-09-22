@@ -1,5 +1,5 @@
 import unittest
-from singly_linked_list import LinkedList
+from singly_linked_list2 import LinkedList
 
 class LinkedListTests(unittest.TestCase):
     def setUp(self):
@@ -36,6 +36,14 @@ class LinkedListTests(unittest.TestCase):
         self.assertIsNone(self.list.head)
         self.assertIsNone(self.list.tail)
         self.assertIsNone(self.list.remove_tail())
+    def test_remove_at_index(self):
+        self.list.add_to_tail(30)
+        self.assertEqual(self.list.remove_at_index(0), 30)
+        self.list.add_to_tail(50)
+        self.list.add_to_tail(100)    
+        self.assertEqual(self.list.remove_at_index(1), 100) 
+        self.assertEqual(self.list.remove_at_index(3), None)    
+        
 
 if __name__ == '__main__':
     unittest.main()
