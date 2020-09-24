@@ -124,7 +124,27 @@ class BSTNode:
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
     def bft_print(self):
-        pass
+        cur_node = self
+        # print(cur_node.value)
+        bfs_result = []
+        # print(bfs_result)
+        queue = []
+        queue.append(cur_node)
+        while len(queue) > 0:
+
+            cur_node = queue.pop(0)
+            
+            bfs_result.append(cur_node.value)
+            
+            if cur_node.left is not None:
+                queue.append(cur_node.left)
+           
+            if cur_node.right is not None:
+                queue.append(cur_node.right)
+                # print(bfs_result)
+        # print(bfs_result)
+            print(cur_node.value)
+    
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
@@ -147,20 +167,34 @@ This code is necessary for testing the `print` methods
 """
 bst = BSTNode(1)
 bst.insert(8)
-print(bst.insert(8))
+# print(bst.insert(8))
 bst.insert(5)
 bst.insert(7)
 bst.insert(6)
 bst.insert(3)
 bst.insert(4)
 bst.insert(2)
+
+# the shape of the binary tree
+#          1
+#        /  \
+#  none      8
+#           /
+#          5
+#       /    \
+#      3     7
+#    /  \   /
+#  2    4  6 
+
 print("recursive dft")
 bst.for_each(print)
 print('----------')
 print("iterative dft")
 bst.for_each_iterative(print)
 
+print('=+++++++++++++++')
 bst.bft_print()
+# [1, 8, 5, 3, 7, 2, 4, 6]
 bst.dft_print()
 
 print("elegant methods")
