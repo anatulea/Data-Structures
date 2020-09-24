@@ -9,6 +9,19 @@ This part of the project comprises two days:
 2. Implement the `in_order_print`, `bft_print`, and `dft_print` methods
    on the BSTNode class.
 """
+# from stack.stack import Stack 
+
+# from stack import Stack
+# import sys
+# sys.path.append('../stack/')
+
+# import sys
+# path = sys.path.append('..')
+# from stack.stack import Stack
+import sys  
+sys.path.append('/Users/anatulea/Documents/lambda/computer science/Data-Structures/stack')
+from stack import Stack
+
 class BSTNode:
     def __init__(self, value):
         self.value = value
@@ -64,9 +77,43 @@ class BSTNode:
         # go right until can't go more right
 
     # Call the function `fn` on the value of each node
+    # O(n)
     def for_each(self, fn):
-        pass
+        # we will have to look at both branches 
+        # start at the root 
+        fn(self.value)
+        if self.left is not None:
+            # go to left
+            self.left.for_each(fn)
+        # else:
+        #     pass
+        if self.right is not None:
+            # go to right
+            self.right.for_each(fn)
 
+
+    def for_each_iterative(self, fn):
+        # Depth first traversal iterative:
+        # Start at the root
+        cur_node = self
+        # push it on to the stack
+        stack = Stack()
+        # stack = [] we can use an array instead of the stack class
+        # stack.append(cur_node)
+        stack.push(cur_node)
+
+        # While stack is not empty:
+        while len(stack) > 0:
+            cur_node = stack.pop()
+            #push right
+            if cur_node.right is not None:
+                stack.push(cur_node.right)
+            # push left 
+            if cur_node.left is not None:
+                stack.push(cur_node.left)
+            # do the thing with the current node
+            fn(cur_node.value)
+        
     # Part 2 -----------------------
 
     # Print all the values in order from low to high
@@ -99,7 +146,6 @@ class BSTNode:
 This code is necessary for testing the `print` methods
 """
 bst = BSTNode(1)
-
 bst.insert(8)
 print(bst.insert(8))
 bst.insert(5)
@@ -108,6 +154,11 @@ bst.insert(6)
 bst.insert(3)
 bst.insert(4)
 bst.insert(2)
+print("recursive dft")
+bst.for_each(print)
+print('----------')
+print("iterative dft")
+bst.for_each_iterative(print)
 
 bst.bft_print()
 bst.dft_print()
