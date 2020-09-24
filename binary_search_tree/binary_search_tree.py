@@ -123,6 +123,7 @@ class BSTNode:
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
+
     def bft_print(self):
         cur_node = self
         # print(cur_node.value)
@@ -144,6 +145,20 @@ class BSTNode:
                 # print(bfs_result)
         # print(bfs_result)
             print(cur_node.value)
+
+    def bft_print_recursive(self, queue , bfs_result):
+        if len(queue) == 0:
+            return bfs_result
+        cur_node = queue.pop(0)
+        bfs_result.append(cur_node.value)
+
+        if cur_node.left is not None:
+            queue.append(cur_node.left)
+    
+        if cur_node.right is not None:
+            queue.append(cur_node.right)
+        
+        return self.bft_print_recursive(queue, bfs_result)
     
 
     # Print the value of every node, starting with the given node,
@@ -195,6 +210,7 @@ bst.for_each_iterative(print)
 print('=+++++++++++++++')
 bst.bft_print()
 # [1, 8, 5, 3, 7, 2, 4, 6]
+print(bst.bft_print_recursive([bst], []))
 bst.dft_print()
 
 print("elegant methods")
