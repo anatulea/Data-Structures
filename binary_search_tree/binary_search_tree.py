@@ -164,7 +164,18 @@ class BSTNode:
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
     def dft_print(self):
-        pass
+        stack = []
+        
+        stack.append(self)
+        while len(stack) > 0:
+            cur_node = stack.pop(0)
+        
+            if cur_node.left:
+                stack.append(cur_node.left)
+               
+            if cur_node.right:
+                stack.append(cur_node.right)
+        print(self.value)    
 
     # Stretch Goals -------------------------
     # Note: Research may be required
@@ -202,16 +213,17 @@ bst.insert(2)
 #  2    4  6 
 
 print("recursive dft")
-bst.for_each(print)
+# bst.for_each(print)
 print('----------')
 print("iterative dft")
-bst.for_each_iterative(print)
+# bst.for_each_iterative(print)
 
 print('=+++++++++++++++')
-bst.bft_print()
+# bst.bft_print()
 # [1, 8, 5, 3, 7, 2, 4, 6]
-print(bst.bft_print_recursive([bst], []))
-bst.dft_print()
+# print(bst.bft_print_recursive([bst], []))
+print('=+++++++++++++++')
+print(bst.dft_print())
 
 print("elegant methods")
 print("pre order")
